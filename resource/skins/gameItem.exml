@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="gameItem" width="200" height="200" currentState="red" xmlns:e="http://ns.egret.com/eui" states="black,white,blue,green,orange,red" >
+	<e:Rect fillColor.black="0x000000" fillColor.white="0xffffff" fillColor.orange="0xff9900" fillColor.green="0x00ff70" fillColor.blue="0x4300ff" fillColor="0xff3d3d" width="196" height="196" horizontalCenter="0" verticalCenter="0"/>
+</e:Skin>

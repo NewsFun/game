@@ -1,0 +1,37 @@
+{
+  "engineVersion": "5.1.6",
+  "compilerVersion": "5.1.6",
+  "template": {},
+  "eui": {
+    "exmlRoot": [
+      "resource/skins"
+    ],
+    "themes": [
+      "resource/default.thm.json"
+    ],
+    "exmlPublishPolicy": "commonjs"
+  },
+  "target": {
+    "current": "web"
+  },
+  "modules": [
+    {
+      "name": "egret"
+    },
+    {
+      "name": "game"
+    },
+    {
+      "name": "tween"
+    },
+    {
+      "name": "assetsmanager"
+    },
+    {
+      "name": "eui"
+    },
+    {
+      "name": "promise"
+    }
+  ]
+}

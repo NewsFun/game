@@ -2,12 +2,7 @@
 module scenes {
 
     export class GameScene extends scenes.BaseScene{
-        private cubeTop: eui.Group;
-        private cubeBack: eui.Group;
-        private cubeLeft: eui.Group;
-        private cubeRight: eui.Group;
-        private cubeFront: eui.Group;
-        private cubeBottom: eui.Group;
+        private cubeBox: eui.Group;
 
         private itemNum: number = 3;
         private sideNum: number = 6;
@@ -22,30 +17,31 @@ module scenes {
         // 
         private init(){
             console.log("init game page");
-            this.initSide();
-            this.cubeWidth = ~~(this.cubeFront.width/3);
+            this.initSide("red");
+            this.cubeWidth = ~~(this.cubeBox.width/3);
         }
         private initCube(){
             for(let i = 0;i<this.sideNum;i++){
-                let side = this.initSide();
+                let side = this.initSide("red");
                 this.cFrontList.push(side);
             }
         }
-        private initSide(){
+        private initSide(state: string){
             let sideList = [];
             for(let i = 0;i<this.itemNum;i++){
-                let list = this.addCubeItem(this.cubeWidth*i);
+                let list = this.addCubeItem(this.cubeWidth*i, state);
                 sideList.push(list);
             }
             return sideList;
         }
-        private addCubeItem(iy: number){
+        private addCubeItem(iy: number, state: string){
             let itemList = [];
             for(let i = 0;i<this.itemNum;i++){
                 let icube = new item.GameItem();
+                icube.currentState = state;
                 icube.x = this.cubeWidth*i;
                 icube.y = iy;
-                this.cubeFront.addChild(icube);
+                this.cubeBox.addChild(icube);
                 itemList.push(icube);
             }
             return itemList;

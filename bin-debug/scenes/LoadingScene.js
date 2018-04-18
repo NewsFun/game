@@ -53,7 +53,6 @@ var scenes;
             g_removeListener(models.configProXy(), events.LoadingTipsGetted);
         };
         LoadingScene.prototype.setSceneSkinName = function () {
-            // this.skinName = "resource/game_skins/LoadingSceneSkin.exml";
             var rect = new eui.Rect();
             rect.top = 0;
             rect.bottom = 0;
@@ -91,7 +90,7 @@ var scenes;
          */
         LoadingScene.prototype.onAppInitLoadComplete = function (e) {
             egret.log("资源加载完成，切换到登陆场景！");
-            manager.sceneManager().changeScene(scenes.Game);
+            manager.sceneManager().changeScene(scenes.GameScene);
         };
         /**
          * 场景资源加载完成

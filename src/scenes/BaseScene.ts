@@ -8,8 +8,6 @@ module scenes {
 
             this.percentHeight = 100;
             this.percentWidth = 100;
-
-            // this.doLanguage();
         }
 
         protected createChildren(): void {

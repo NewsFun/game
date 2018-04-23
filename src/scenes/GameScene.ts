@@ -7,7 +7,8 @@ module scenes {
         private itemNum: number = 3;
         private sideNum: number = 6;
         private cubeWidth: number = 200;
-        private cFrontList: any[] = [];
+        private cubeList: any[] = [];
+        private sideColor: any[] = ["red", "green", "blue", "black", "white", "orange"];
 
         constructor(){
             super();
@@ -17,34 +18,34 @@ module scenes {
         // 
         private init(){
             console.log("init game page");
-            this.initSide("red");
             this.cubeWidth = ~~(this.cubeBox.width/3);
+            this.initCube().addCubeItem();
+        }
+        private addCubeItem(){
+            this.cubeList.forEach((e, i)=>{
+                this.cubeBox.addChild(e);
+            });
         }
         private initCube(){
             for(let i = 0;i<this.sideNum;i++){
-                let side = this.initSide("red");
-                this.cFrontList.push(side);
+                let state = this.sideColor[i];
+                this.initSide(state);
             }
+            return this;
         }
         private initSide(state: string){
-            let sideList = [];
             for(let i = 0;i<this.itemNum;i++){
-                let list = this.addCubeItem(this.cubeWidth*i, state);
-                sideList.push(list);
+                this.createCubeItem(this.cubeWidth*i, state);
             }
-            return sideList;
         }
-        private addCubeItem(iy: number, state: string){
-            let itemList = [];
+        private createCubeItem(iy: number, state: string){
             for(let i = 0;i<this.itemNum;i++){
                 let icube = new item.GameItem();
                 icube.currentState = state;
                 icube.x = this.cubeWidth*i;
                 icube.y = iy;
-                this.cubeBox.addChild(icube);
-                itemList.push(icube);
+                this.cubeList.push(icube);
             }
-            return itemList;
         }
     }
 }
